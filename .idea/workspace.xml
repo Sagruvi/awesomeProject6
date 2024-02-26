@@ -4,19 +4,258 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caeeffcb-c20d-4957-b86d-f0ae8c5ec438" name="Changes" comment="f">
+    <list default="true" id="caeeffcb-c20d-4957-b86d-f0ae8c5ec438" name="Changes" comment="fix">
+      <change afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/_index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/binary/binary.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/binary/binary_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/graph/graph.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/graph/graph_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/.hugo_build.lock" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/.hugo_build.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/archetypes/default.md" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/archetypes/default.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/assets/_custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/assets/_custom.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/assets/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/assets/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/config.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/content/_index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/content/address/search.md" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/content/address/search.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/content/tasks/_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/content/tasks/_index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/content/tasks/binary.md" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/content/tasks/binary.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/content/tasks/graph.md" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/content/tasks/graph.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/resources/_gen/assets/scss/book.scss_50fc8c04e12a2f59027287995557ceff.content" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/resources/_gen/assets/scss/book.scss_50fc8c04e12a2f59027287995557ceff.content" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/resources/_gen/assets/scss/book.scss_50fc8c04e12a2f59027287995557ceff.json" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/resources/_gen/assets/scss/book.scss_50fc8c04e12a2f59027287995557ceff.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/resources/_gen/assets/scss/book.scss_e129fe35b8d0a70789c8a08429469073.content" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/resources/_gen/assets/scss/book.scss_e129fe35b8d0a70789c8a08429469073.content" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/resources/_gen/assets/scss/book.scss_e129fe35b8d0a70789c8a08429469073.json" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/resources/_gen/assets/scss/book.scss_e129fe35b8d0a70789c8a08429469073.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/.github/workflows/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/archetypes/docs.md" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/archetypes/docs.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/archetypes/posts.md" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/archetypes/posts.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/_custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/_custom.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/_defaults.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/_defaults.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/_fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/_fonts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/_main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/_main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/_markdown.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/_markdown.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/_print.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/_print.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/_shortcodes.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/_shortcodes.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/_utils.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/_utils.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/book.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/book.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/clipboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/clipboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/menu-reset.js" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/menu-reset.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/mermaid.json" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/mermaid.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/normalize.css" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/normalize.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/plugins/_numbered.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/plugins/_numbered.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/plugins/_scrollbars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/plugins/_scrollbars.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/search-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/search-data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/sw-register.js" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/sw-register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/sw.js" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/sw.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/themes/_auto.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/themes/_auto.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/themes/_dark.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/themes/_dark.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/assets/themes/_light.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/assets/themes/_light.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/exampleSite/assets/_custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/exampleSite/assets/_custom.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/exampleSite/assets/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/exampleSite/assets/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/exampleSite/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/exampleSite/config.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/exampleSite/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/exampleSite/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/exampleSite/resources/_gen/assets/scss/book.scss_e129fe35b8d0a70789c8a08429469073.content" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/exampleSite/resources/_gen/assets/scss/book.scss_e129fe35b8d0a70789c8a08429469073.content" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/exampleSite/resources/_gen/assets/scss/book.scss_e129fe35b8d0a70789c8a08429469073.json" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/exampleSite/resources/_gen/assets/scss/book.scss_e129fe35b8d0a70789c8a08429469073.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/am.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/am.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/bn.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/bn.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/cn.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/cn.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/cs.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/cs.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/de.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/de.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/en.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/en.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/es.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/es.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/fa.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/fa.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/fr.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/fr.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/it.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/it.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/ja.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/ja.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/jp.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/jp.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/ko.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/ko.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/nb.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/nb.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/pt.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/pt.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/ru.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/ru.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/sv.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/sv.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/tr.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/tr.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/uk.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/uk.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/zh-TW.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/zh-TW.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/i18n/zh.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/i18n/zh.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/images/screenshot.png" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/images/screenshot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/images/tn.png" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/images/tn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/_default/_markup/render-heading.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/_default/_markup/render-heading.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/_default/_markup/render-image.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/_default/_markup/render-image.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/_default/_markup/render-link.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/_default/_markup/render-link.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/_default/baseof.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/_default/baseof.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/_default/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/_default/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/_default/single.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/_default/single.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/brand.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/brand.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/comments.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/comments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/date.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/date.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/html-head-title.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/html-head-title.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/html-head.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/html-head.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/inject/body.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/inject/body.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/inject/content-after.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/inject/content-after.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/inject/content-before.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/inject/content-before.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/inject/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/inject/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/inject/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/inject/head.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/inject/menu-after.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/inject/menu-after.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/inject/menu-before.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/inject/menu-before.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/inject/toc-after.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/inject/toc-after.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/inject/toc-before.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/inject/toc-before.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/languages.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/languages.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/menu-bundle.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/menu-bundle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/menu-filetree.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/menu-filetree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/menu-hugo.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/menu-hugo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/post-meta.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/post-meta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/taxonomy.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/taxonomy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/title.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/title.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/partials/docs/toc.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/partials/docs/toc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/posts/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/posts/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/posts/single.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/posts/single.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/shortcodes/button.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/shortcodes/button.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/shortcodes/columns.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/shortcodes/columns.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/shortcodes/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/shortcodes/details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/shortcodes/expand.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/shortcodes/expand.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/shortcodes/hint.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/shortcodes/hint.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/shortcodes/katex.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/shortcodes/katex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/shortcodes/mermaid.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/shortcodes/mermaid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/shortcodes/section.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/shortcodes/section.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/shortcodes/tab.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/shortcodes/tab.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/shortcodes/tabs.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/shortcodes/tabs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/taxonomy/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/taxonomy/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/layouts/taxonomy/taxonomy.html" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/layouts/taxonomy/taxonomy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/content/_index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/favicon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/favicon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/flexsearch.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/flexsearch.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/fonts/roboto-mono-v13-latin-regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/fonts/roboto-mono-v13-latin-regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/fonts/roboto-mono-v13-latin-regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/fonts/roboto-mono-v13-latin-regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/fonts/roboto-v27-latin-700.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/fonts/roboto-v27-latin-700.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/fonts/roboto-v27-latin-700.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/fonts/roboto-v27-latin-700.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/fonts/roboto-v27-latin-regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/fonts/roboto-v27-latin-regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/fonts/roboto-v27-latin-regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/fonts/roboto-v27-latin-regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/auto-render.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/auto-render.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_AMS-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_AMS-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_AMS-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_AMS-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_AMS-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_AMS-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Caligraphic-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Caligraphic-Bold.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Caligraphic-Bold.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Caligraphic-Bold.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Caligraphic-Bold.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Caligraphic-Bold.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Caligraphic-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Caligraphic-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Caligraphic-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Caligraphic-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Caligraphic-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Caligraphic-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Fraktur-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Fraktur-Bold.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Fraktur-Bold.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Fraktur-Bold.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Fraktur-Bold.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Fraktur-Bold.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Fraktur-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Fraktur-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Fraktur-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Fraktur-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Fraktur-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Fraktur-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Bold.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Bold.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Bold.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Bold.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Bold.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-BoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-BoldItalic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-BoldItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-BoldItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-BoldItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-BoldItalic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Italic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Italic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Italic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Italic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Italic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Main-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Math-BoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Math-BoldItalic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Math-BoldItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Math-BoldItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Math-BoldItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Math-BoldItalic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Math-Italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Math-Italic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Math-Italic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Math-Italic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Math-Italic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Math-Italic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Bold.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Bold.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Bold.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Bold.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Bold.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Italic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Italic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Italic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Italic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Italic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_SansSerif-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Script-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Script-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Script-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Script-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Script-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Script-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size1-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size1-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size1-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size1-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size1-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size1-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size2-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size2-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size2-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size2-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size2-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size2-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size3-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size3-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size3-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size3-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size3-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size3-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size4-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size4-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size4-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size4-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size4-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Size4-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Typewriter-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Typewriter-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Typewriter-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Typewriter-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Typewriter-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/fonts/KaTeX_Typewriter-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/katex.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/katex.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/katex/katex.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/katex/katex.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/mermaid.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/mermaid.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/svg/calendar.svg" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/svg/calendar.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/svg/edit.svg" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/svg/edit.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/svg/menu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/svg/menu.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/svg/toc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/svg/toc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/static/svg/translate.svg" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/static/svg/translate.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/hugo/themes/hugo-book/theme.toml" beforeDir="false" afterPath="$PROJECT_DIR$/hugo/themes/hugo-book/theme.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/proxy/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/proxy/cover.out" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/cover.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/proxy/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/proxy/main_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/main_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugoproxy/proxy/test.sh" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/test.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
   <component name="GOROOT" url="file:///usr/lib/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
+  <component name="GitLabMergeRequestFiltersHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPENED&quot;,
+    &quot;assignee&quot;: {
+      &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,
+      &quot;username&quot;: &quot;Sagruvi&quot;,
+      &quot;fullname&quot;: &quot;Yaroslav&quot;
+    }
+  }
+}</component>
+  <component name="GitLabMergeRequestsSettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;first&quot;: &quot;https://gitlab.com/wanilla/task&quot;,
+    &quot;second&quot;: &quot;89ee8a42-7eb4-46a7-a6cf-d56df0211016&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -32,6 +271,8 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Go Test.TestAVLTree_Insert/test in main/proxy/binary.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.go test main/proxy/graph.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
@@ -43,19 +284,26 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/sagruvi/GolandProjects/awesomeProject6&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/sagruvi&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/hugoproxy" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/exc" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/proxy" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/graph" />
+      <recent name="$PROJECT_DIR$/binary" />
+      <recent name="$PROJECT_DIR$/hugoproxy/proxy" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go Test.TestAVLTree_Insert/test in main/proxy/binary">
     <configuration name="go build awesomeProject6" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="awesomeProject6" />
       <working_directory value="$PROJECT_DIR$" />
@@ -65,8 +313,33 @@
       <filePath value="$PROJECT_DIR$/main.go" />
       <method v="2" />
     </configuration>
+    <configuration name="TestAVLTree_Insert/test in main/proxy/binary" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="awesomeProject6" />
+      <working_directory value="$PROJECT_DIR$/proxy/binary" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="main/proxy/binary" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestAVLTree_Insert\E$/^\Qtest\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go test main/proxy/graph" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="awesomeProject6" />
+      <working_directory value="$PROJECT_DIR$/proxy/graph" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="main/proxy/graph" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestAVLTree_Insert/test in main/proxy/binary" />
+        <item itemvalue="Go Test.go test main/proxy/graph" />
         <item itemvalue="Go Build.go build awesomeProject6" />
       </list>
     </recent_temporary>
@@ -95,7 +368,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="f" />
-    <option name="LAST_COMMIT_MESSAGE" value="f" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

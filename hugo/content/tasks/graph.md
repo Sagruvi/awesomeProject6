@@ -40,13 +40,21 @@ C --> B
 
 <--->
 
-{{< mermaid >}}
-graph LR
-A[Square Rect] --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-C --> B
+{{< mermaid >}} graph LR 
+A11{Rhombus} --> A9(Round Rect)
+A11 --> A9(Round Rect)
+A11 --> A1{Rhombus}
+A11 --> A2{Rhombus}
+A11 --> A12[Square Rect]
+A11 --> A10(Round Rect)
+A11 --> A5{Rhombus}
+A11 --> A8{Rhombus}
+A11 --> A3(Round Rect)
+A11 --> A13((Circle))
+A11 --> A6{Rhombus}
+A11 --> A7{Rhombus}
+A6 --> A4((Circle))
+
 {{< /mermaid >}}
 
 {{< /columns >}}

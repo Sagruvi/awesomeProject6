@@ -4,8 +4,12 @@ FROM golang:1.16-alpine as builder
 # Устанавливаем рабочую директорию внутри контейнера
 WORKDIR /app
 
+
 # Копируем исходники приложения в рабочую директорию
 COPY . .
+
+COPY ./binary /usr/local/go/src/main/proxy/binary
+COPY ./graph /usr/local/go/src/main/proxy/graph
 # Скачиваем все зависимости
 RUN go mod init test && go mod tidy
 
