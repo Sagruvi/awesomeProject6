@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"gopkg.in/webdeskltd/dadata.v2"
 	"io/ioutil"
 	"log"
 	"main/proxy/binary"
@@ -24,26 +26,21 @@ func main() {
 	}
 	hugoProxy := httputil.NewSingleHostReverseProxy(hugoURL)
 
-	// Обработчик для маршрута /api/
-	http.HandleFunc("/api/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello from API"))
-	})
-
-	// Обработчик для всех остальных запросов
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		// Проверяем, если запрос начинается с /api/
-		if strings.HasPrefix(r.URL.Path, "/api/") {
-			// Если да, отправляем текст "Hello from API"
+		if strings.HasPrefix(r.URL.Path, "/api/address/search") {
+			search(w, r)
+		}
+		if strings.HasPrefix(r.URL.Path, "/api/address/geo") {
+			geocode(w, r)
+		} else if strings.HasPrefix(r.URL.Path, "/api/") {
 			w.Write([]byte("Hello from API"))
 		} else {
-			// Если нет, перенаправляем запрос на сервер Hugo
 			hugoProxy.ServeHTTP(w, r)
 		}
 	})
-	//go WorkerTest()
-	go WorkerCounter()
-	go WorkerBinary()
-	go WorkerGraph()
+	//go WorkerCounter()
+	//go WorkerBinary()
+	//go WorkerGraph()
 	// Запускаем сервер на порту 8080
 	http.ListenAndServe(":8080", nil)
 }
@@ -244,5 +241,85 @@ func WorkerGraph() {
 		if err != nil {
 			log.Fatal(err)
 		}
+	}
+}
+
+type SearchRequest struct {
+	Query string `json:"query"`
+}
+type SearchResponse struct {
+	Addresses []*Address `json:"addresses"`
+}
+type GeocodeRequest struct {
+	Lat float32 `json:"lat"`
+	Lng float32 `json:"lon"`
+}
+type GeocodeResponse struct {
+	Addresses []*Address `json:"addresses"`
+}
+
+func search(w http.ResponseWriter, r *http.Request) {
+	var searchRequest SearchRequest
+	err := json.NewDecoder(r.Body).Decode(&searchRequest)
+	if err != nil {
+		log.Println("err502.1")
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	api := dadata.NewDaData("602f4fabeedea0f000f4cee8ab9a5773d800f005", "f57d7df9064c22a9c4a7c61b90109cd44fd7f284")
+
+	log.Println(searchRequest.Query)
+
+	addresses, err := api.CleanAddresses(searchRequest.Query)
+	if err != nil {
+		log.Println("err502.2")
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	log.Println(addresses)
+	var searchResponse SearchResponse
+	searchResponse.Addresses = []*Address{{Lat: addresses[0].GeoLat, Lng: addresses[0].GeoLon}}
+	err = json.NewEncoder(w).Encode(&searchResponse)
+	if err != nil {
+		log.Println("err502.3")
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+}
+
+type Address struct {
+	Lat string `json:"lat"`
+	Lng string `json:"lon"`
+}
+
+func geocode(w http.ResponseWriter, r *http.Request) {
+	var geocodeRequest GeocodeRequest
+	err := json.NewDecoder(r.Body).Decode(&geocodeRequest)
+	if err != nil {
+		log.Println("err1")
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	api := dadata.NewDaData("602f4fabeedea0f000f4cee8ab9a5773d800f005", "f57d7df9064c22a9c4a7c61b90109cd44fd7f284")
+
+	req := dadata.GeolocateRequest{
+		Lat:          geocodeRequest.Lat,
+		Lon:          geocodeRequest.Lng,
+		Count:        5,
+		RadiusMeters: 100,
+	}
+	addresses, err := api.GeolocateAddress(req)
+	if err != nil {
+		log.Println("err4")
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	var geocodeResponse GeocodeResponse
+	geocodeResponse.Addresses = []*Address{{Lat: addresses[0].Data.City, Lng: addresses[0].Data.Street + " " + addresses[0].Data.House}}
+	err = json.NewEncoder(w).Encode(&geocodeResponse)
+	if err != nil {
+		log.Println("err5")
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
 	}
 }
