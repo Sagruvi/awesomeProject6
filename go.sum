@@ -1,3 +1,4 @@
+github.com/go-test/deep v1.0.1 h1:UQhStjbkDClarlmv0am7OXXO4/GaPdCGiUiMTvi28sg=
 github.com/go-test/deep v1.0.1/go.mod h1:wGDj63lr65AM2AQyKZd/NYHGb0R+1RLqB8NKt3aSFNA=
 gopkg.in/webdeskltd/dadata.v2 v2.0.0-20190503150402-ba1c2deb8492 h1:RaCYt8Bg/18in1BcZZnk62Df0Enenau8jLw7s+wK6OE=
 gopkg.in/webdeskltd/dadata.v2 v2.0.0-20190503150402-ba1c2deb8492/go.mod h1:LA8uzAMDRLpZY/yDkS4r9FG9XmnqEmMkxgWLWrvYmL0=

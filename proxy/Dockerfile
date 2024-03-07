@@ -7,7 +7,8 @@ WORKDIR /app
 
 # Копируем исходники приложения в рабочую директорию
 COPY . .
-
+COPY ./geolocation /usr/local/go/src/main/proxy/geolocation
+COPY ./buildmermaid /usr/local/go/src/main/proxy/buildmermaid
 COPY ./binary /usr/local/go/src/main/proxy/binary
 COPY ./graph /usr/local/go/src/main/proxy/graph
 # Скачиваем все зависимости

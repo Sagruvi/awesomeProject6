@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caeeffcb-c20d-4957-b86d-f0ae8c5ec438" name="Changes" comment="fix">
+    <list default="true" id="caeeffcb-c20d-4957-b86d-f0ae8c5ec438" name="Changes" comment="add routes /api/address/search .../geocode">
+      <change afterPath="$PROJECT_DIR$/proxy/buildmermaid/mermaidworkers.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/geolocation/geocode.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/geolocation/search.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy/cover.out" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/cover.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proxy/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy/main_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/main_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,29 +62,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Go Build.go build main/proxy.executor&quot;: &quot;Run&quot;,
-    &quot;Go Test.TestAVLTree_Insert/test in main/proxy/binary.executor&quot;: &quot;Run&quot;,
-    &quot;Go Test.go test main/proxy/graph.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/sagruvi/GolandProjects/awesomeProject6/proxy/dadata&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Go Build.go build main/proxy.executor": "Run",
+    "Go Test.TestAVLTree_Insert/test in main/proxy/binary.executor": "Run",
+    "Go Test.go test main/proxy/graph.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/home/sagruvi",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/proxy/dadata" />
@@ -169,7 +175,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="f" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="add routes /api/address/search .../geocode" />
+    <option name="LAST_COMMIT_MESSAGE" value="add routes /api/address/search .../geocode" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
