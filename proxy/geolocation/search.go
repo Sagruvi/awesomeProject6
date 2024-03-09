@@ -21,6 +21,22 @@ type GeocodeResponse struct {
 	Addresses []*Address `json:"addresses"`
 }
 
+// SearchAddress godoc
+//
+//	@Summary		Search for address
+//	@Description	Search for latitude and longitude by address
+//	@Tags			addresses
+//	@Accept			json
+//	@Produce		json
+//	@Param			lat				body		SearchRequest	true	"Address"
+//	@Param			Authorization	header		string			true	"Authorization token"
+//	@Param			X-Secret		header		string			true	"API Private token"
+//	@Success		200					"Successful operation"
+//	@Failure		400				"Bad request"
+//	@Failure		401				"Unauthorized"
+//	@Failure		404				"Not found"
+//	@Failure		500				"Internal server error"
+//	@Router			/search [post]
 func Search(w http.ResponseWriter, r *http.Request) {
 	var searchRequest SearchRequest
 	err := json.NewDecoder(r.Body).Decode(&searchRequest)

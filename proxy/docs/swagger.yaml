@@ -1,0 +1,98 @@
+basePath: /api/address
+definitions:
+  geolocation.GeocodeRequest:
+    properties:
+      lat:
+        type: number
+      lon:
+        type: number
+    type: object
+  geolocation.SearchRequest:
+    properties:
+      query:
+        type: string
+    type: object
+host: localhost:8080/
+info:
+  contact: {}
+  description: This is a sample server geolocation service.
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /geocode:
+    post:
+      consumes:
+      - application/json
+      description: Search for address suggestions by latitude and longitude
+      parameters:
+      - description: Lat and Lon
+        in: body
+        name: lat
+        required: true
+        schema:
+          $ref: '#/definitions/geolocation.GeocodeRequest'
+      - description: Authorization token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: API Private token
+        in: header
+        name: X-Secret
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Bad request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not found
+        "500":
+          description: Internal server error
+      summary: Search for address suggestions
+      tags:
+      - addresses
+  /search:
+    post:
+      consumes:
+      - application/json
+      description: Search for latitude and longitude by address
+      parameters:
+      - description: Address
+        in: body
+        name: lat
+        required: true
+        schema:
+          $ref: '#/definitions/geolocation.SearchRequest'
+      - description: Authorization token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: API Private token
+        in: header
+        name: X-Secret
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Bad request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not found
+        "500":
+          description: Internal server error
+      summary: Search for address
+      tags:
+      - addresses
+swagger: "2.0"

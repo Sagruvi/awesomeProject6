@@ -1,0 +1,148 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server geolocation service.",
+        "title": "Swagger Example API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:8080/",
+    "basePath": "/api/address",
+    "paths": {
+        "/geocode": {
+            "post": {
+                "description": "Search for address suggestions by latitude and longitude",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "addresses"
+                ],
+                "summary": "Search for address suggestions",
+                "parameters": [
+                    {
+                        "description": "Lat and Lon",
+                        "name": "lat",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/geolocation.GeocodeRequest"
+                        }
+                    },
+                    {
+                        "type": "string",
+                        "description": "Authorization token",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "API Private token",
+                        "name": "X-Secret",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/search": {
+            "post": {
+                "description": "Search for latitude and longitude by address",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "addresses"
+                ],
+                "summary": "Search for address",
+                "parameters": [
+                    {
+                        "description": "Address",
+                        "name": "lat",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/geolocation.SearchRequest"
+                        }
+                    },
+                    {
+                        "type": "string",
+                        "description": "Authorization token",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "API Private token",
+                        "name": "X-Secret",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "geolocation.GeocodeRequest": {
+            "type": "object",
+            "properties": {
+                "lat": {
+                    "type": "number"
+                },
+                "lon": {
+                    "type": "number"
+                }
+            }
+        },
+        "geolocation.SearchRequest": {
+            "type": "object",
+            "properties": {
+                "query": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

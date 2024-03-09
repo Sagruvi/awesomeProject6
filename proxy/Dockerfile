@@ -1,5 +1,5 @@
 # Используем официальный образ Go как базовый
-FROM golang:1.16-alpine as builder
+FROM golang:1.18-alpine as builder
 
 # Устанавливаем рабочую директорию внутри контейнера
 WORKDIR /app
@@ -7,12 +7,13 @@ WORKDIR /app
 
 # Копируем исходники приложения в рабочую директорию
 COPY . .
+COPY ./docs /usr/local/go/src/main/proxy/docs
 COPY ./geolocation /usr/local/go/src/main/proxy/geolocation
 COPY ./buildmermaid /usr/local/go/src/main/proxy/buildmermaid
 COPY ./binary /usr/local/go/src/main/proxy/binary
 COPY ./graph /usr/local/go/src/main/proxy/graph
 # Скачиваем все зависимости
-RUN go mod init test && go mod tidy
+RUN go mod init  test && go mod tidy
 
 # Собираем приложение
 RUN go build -o main
