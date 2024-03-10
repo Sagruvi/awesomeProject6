@@ -17,6 +17,9 @@ import (
 //	@Param			lat				body		GeocodeRequest	true	"Lat and Lon"
 //	@Param			Authorization	header		string			true	"Authorization token"
 //	@Param			X-Secret		header		string			true	"API Private token"
+//
+// @Param        Authorization header string true "Bearer token"
+//
 //	@Success		200					"Successful operation"
 //	@Failure		400				"Bad request"
 //	@Failure		401				"Unauthorized"

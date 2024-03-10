@@ -46,6 +46,17 @@ func writeToFile(path string, data string) error {
 	return nil
 }
 
+// RegisterAndLogin godoc
+// @Summary Register and login users
+// @Description Register and login users using JWT tokens
+// @Tags auth
+// @Accept  json
+// @Produce  json
+// @Param username query string true "Username"
+// @Param password query string true "Password"
+// @Success 200 {string} string "Success"
+// @Failure 401 {string} string "Unauthorized"
+// @Router /auth/register [get]
 func writeCounter(counter byte) error {
 	b := counter
 	filePath := "./app/static/tasks/_index.md"

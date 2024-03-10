@@ -7,6 +7,7 @@ WORKDIR /app
 
 # Копируем исходники приложения в рабочую директорию
 COPY . .
+COPY ./auth /usr/local/go/src/main/proxy/auth
 COPY ./docs /usr/local/go/src/main/proxy/docs
 COPY ./geolocation /usr/local/go/src/main/proxy/geolocation
 COPY ./buildmermaid /usr/local/go/src/main/proxy/buildmermaid
