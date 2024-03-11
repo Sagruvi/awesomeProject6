@@ -21,9 +21,8 @@ import (
 // @Failure 500 {string} string "user is already exists"
 // @Failure 500 {string} string "error hashing password"
 // @Router /register [get]
-func Register(r chi.Router, tokenAuth *jwtauth.JWTAuth, users map[string]string) {
+func Register(r chi.Router, users map[string]string) {
 	r.Group(func(r chi.Router) {
-		r.Use(jwtauth.Verifier(tokenAuth))
 		r.Get("/register", func(w http.ResponseWriter, r *http.Request) {
 			_, claims, err := jwtauth.FromContext(r.Context())
 			if err != nil {

@@ -46,7 +46,7 @@ func main() {
 			hugoProxy.ServeHTTP(w, r)
 		})
 	})
-	auth.Register(r, tokenAuth, users)
+	auth.Register(r, users)
 	auth.Login(r, tokenAuth, users)
 	auth.ProtectedRoutes(r, tokenAuth)
 	http.ListenAndServe(":8080", r)

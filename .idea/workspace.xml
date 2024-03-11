@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caeeffcb-c20d-4957-b86d-f0ae8c5ec438" name="Changes" comment="add jwt auth">
-      <change afterPath="$PROJECT_DIR$/proxy/auth/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/buildmermaid/mermaidworkers.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/buildmermaid/mermaidworkers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/docs/docs.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/docs/docs.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/docs/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/docs/swagger.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/docs/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/docs/swagger.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/geolocation/geocode.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/geolocation/geocode.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/geolocation/search.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/geolocation/search.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/main.go" afterDir="false" />
-    </list>
+    <list default="true" id="caeeffcb-c20d-4957-b86d-f0ae8c5ec438" name="Changes" comment="add jwt auth" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
