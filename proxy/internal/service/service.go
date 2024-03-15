@@ -1,20 +1,26 @@
-package controller
+package service
 
 import (
 	"encoding/json"
 	"fmt"
-	"main/proxy/repository"
-	"main/proxy/service"
+	"github.com/go-chi/jwtauth"
+	"main/proxy/internal/repository"
 	"net/http"
 )
 
-type Controller struct {
-	Service *service.Service
+type GeoServicer interface {
+	Login(http.ResponseWriter, *http.Request)
+	Register(http.ResponseWriter, *http.Request)
+}
+type Service struct {
+	Repository repository.Repository
+	TokenAuth  *jwtauth.JWTAuth
 }
 
-func NewController(service *service.Service) *Controller {
-	return &Controller{
-		Service: service,
+func NewService(secret string) *Service {
+	return &Service{
+		Repository: repository.NewRepository(),
+		TokenAuth:  jwtauth.New("HS256", []byte(secret), nil),
 	}
 }
 
@@ -30,18 +36,18 @@ func NewController(service *service.Service) *Controller {
 // @Failure 401 {string} string "Unauthorized"
 // @Failure 500 {string} string "error creating token"
 // @Router /login [get]
-func (c *Controller) Login(w http.ResponseWriter, r *http.Request) {
+func (s *Service) Login(w http.ResponseWriter, r *http.Request) {
 	var user repository.User
 	err := json.NewDecoder(r.Body).Decode(&user)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-	if !c.Service.Repository.CheckUser(user.Username, user.Password) {
+	if !s.Repository.CheckUser(user.Username, user.Password) {
 		http.Error(w, "user is not registered", http.StatusUnauthorized)
 		return
 	}
-	_, tokenString, err := c.Service.TokenAuth.
+	_, tokenString, err := s.TokenAuth.
 		Encode(map[string]interface{}{"username": user.Username, "password": user.Password})
 	if err != nil {
 		http.Error(w, "error creating token", http.StatusInternalServerError)
@@ -67,14 +73,14 @@ func (c *Controller) Login(w http.ResponseWriter, r *http.Request) {
 // @Failure 500 {string} string "user is already exists"
 // @Failure 500 {string} string "error hashing password"
 // @Router /register [get]
-func (c *Controller) Register(w http.ResponseWriter, r *http.Request) {
+func (s *Service) Register(w http.ResponseWriter, r *http.Request) {
 	var user repository.User
 	err := json.NewDecoder(r.Body).Decode(&user)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-	err = c.Service.Repository.SaveUser(user.Username, user.Password)
+	err = s.Repository.SaveUser(user.Username, user.Password)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
