@@ -7,18 +7,15 @@ WORKDIR /app
 
 # Копируем исходники приложения в рабочую директорию
 COPY . .
-COPY ./internal /usr/local/go/src/main/proxy/internal
-COPY ./auth /usr/local/go/src/main/proxy/auth
-COPY ./docs /usr/local/go/src/main/proxy/docs
 COPY ./geolocation /usr/local/go/src/main/proxy/geolocation
-COPY ./buildmermaid /usr/local/go/src/main/proxy/buildmermaid
-COPY ./binary /usr/local/go/src/main/proxy/binary
-COPY ./graph /usr/local/go/src/main/proxy/graph
+COPY ./docs /usr/local/go/src/main/proxy/docs
+COPY ./internal /usr/local/go/src/main/proxy/internal
+
 # Скачиваем все зависимости
 RUN go mod init  test && go mod tidy
 
 # Собираем приложение
-RUN go build -o main
+RUN go build -o main ./cmd
 
 # Начинаем новую стадию сборки на основе минимального образа
 FROM alpine:latest
