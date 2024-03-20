@@ -4,15 +4,25 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caeeffcb-c20d-4957-b86d-f0ae8c5ec438" name="Changes" comment="add service and repository">
+    <list default="true" id="caeeffcb-c20d-4957-b86d-f0ae8c5ec438" name="Changes" comment="divided the routes and added protected routes">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/internal/geolocation/controller/controller.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/internal/geolocation/repository/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/internal/geolocation/service/service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/migrations/001_init.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/migrations/002_init.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/migrations/003_init.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proxy/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/internal/controller/controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/internal/controller/controller.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/internal/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/internal/service/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/cmd/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/main_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/cmd/main_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy/geolocation/geocode.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy/geolocation/search.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy/internal/controller/controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/internal/auth/controller/controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy/internal/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/internal/auth/repository/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy/internal/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/internal/auth/service/service.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +88,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/sagruvi/GolandProjects/awesomeProject6/proxy/internal&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/sagruvi/GolandProjects/awesomeProject6&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
@@ -86,17 +96,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/proxy/migrations" />
       <recent name="$PROJECT_DIR$/proxy/internal" />
       <recent name="$PROJECT_DIR$/proxy/dadata" />
       <recent name="$PROJECT_DIR$/hugoproxy" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/proxy/internal/geolocation/controller" />
+      <recent name="$PROJECT_DIR$/proxy/internal" />
+      <recent name="$PROJECT_DIR$/proxy/internal/auth" />
       <recent name="$PROJECT_DIR$/proxy/cmd" />
       <recent name="$PROJECT_DIR$/proxy" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/graph" />
-      <recent name="$PROJECT_DIR$/binary" />
     </key>
   </component>
   <component name="RunManager" selected="Go Build.go build main/proxy">
@@ -161,6 +172,9 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -181,7 +195,8 @@
     <MESSAGE value="add controller" />
     <MESSAGE value="add graceful shutdown" />
     <MESSAGE value="add service and repository" />
-    <option name="LAST_COMMIT_MESSAGE" value="add service and repository" />
+    <MESSAGE value="divided the routes and added protected routes" />
+    <option name="LAST_COMMIT_MESSAGE" value="divided the routes and added protected routes" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

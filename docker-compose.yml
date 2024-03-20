@@ -1,6 +1,15 @@
 version: '3'
 
 services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+
   server:
     image: klakegg/hugo:0.101.0-ext-alpine
     container_name: hugo
@@ -11,7 +20,8 @@ services:
     ports:
       - "1313:1313"
     networks:
-        - mylocal
+      - mylocal
+
   app:
     build: ./proxy
     container_name: proxy
@@ -20,7 +30,8 @@ services:
     ports:
       - "8080:8080"
     networks:
-        - mylocal
+      - mylocal
+
 networks:
-    mylocal:
-        driver: bridge
+  mylocal:
+    driver: bridge
