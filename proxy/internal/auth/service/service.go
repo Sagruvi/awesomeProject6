@@ -1,7 +1,7 @@
 package service
 
 import (
-	"main/proxy/internal/repository"
+	"main/proxy/internal/auth/repository"
 )
 
 type Service struct {

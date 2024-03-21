@@ -7,9 +7,9 @@ WORKDIR /app
 
 # Копируем исходники приложения в рабочую директорию
 COPY . .
-COPY ./docs . /usr/local/go/src/main/
-COPY ./graph . /usr/local/go/src/main/
-COPY ./internal . /usr/local/go/src/main/
+COPY ./docs . /usr/local/go/src/main/proxy/
+COPY ./graph . /usr/local/go/src/main/proxy/
+COPY ./internal . /usr/local/go/src/main/proxy/
 
 
 # Скачиваем все зависимости

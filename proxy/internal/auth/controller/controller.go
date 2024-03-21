@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/go-chi/jwtauth"
+	"main/proxy/internal/auth/repository"
 	"main/proxy/internal/auth/service"
-	"main/proxy/internal/repository"
 	"net/http"
 )
 
