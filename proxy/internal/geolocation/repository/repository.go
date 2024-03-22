@@ -95,14 +95,14 @@ func (r *Repository) CacheSearchHistory(request string) error {
 	return nil
 }
 
-func (r *Repository) CacheAddress(address Address) error {
+func (r *Repository) CacheAddress(geocodeResponse GeocodeResponse) error {
 	conn, err := Connect(context.Background())
 	if err != nil {
 		return err
 	}
 	defer conn.Close(context.Background())
 
-	_, err = conn.Exec(context.Background(), "INSERT INTO address (lat, lon) VALUES ($1, $2)", address.Lat, address.Lng)
+	_, err = conn.Exec(context.Background(), "INSERT INTO address (lat, lon) VALUES ($1, $2)", geocodeResponse.Addresses[0].Lat, geocodeResponse.Addresses[0].Lng)
 	if err != nil {
 		return err
 	}

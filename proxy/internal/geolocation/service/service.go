@@ -3,9 +3,9 @@ package service
 import (
 	"encoding/json"
 	"gopkg.in/webdeskltd/dadata.v2"
+	"io"
 	"log"
 	"main/proxy/internal/geolocation/repository"
-	"net/http"
 	"strconv"
 )
 
@@ -20,8 +20,8 @@ func NewService(repository repository.Repository) *Service {
 func (s *Service) CacheSearchHistory(request repository.SearchRequest) error {
 	return s.Repository.CacheSearchHistory(request.Query)
 }
-func (s *Service) CacheAddress(address repository.Address) error {
-	return s.Repository.CacheAddress(address)
+func (s *Service) CacheAddress(request repository.GeocodeResponse) error {
+	return s.Repository.CacheAddress(request)
 }
 func (s *Service) GetSearchHistory(response repository.SearchResponse) (repository.SearchRequest, error) {
 	return s.Repository.GetSearchHistory(response)
@@ -29,30 +29,24 @@ func (s *Service) GetSearchHistory(response repository.SearchResponse) (reposito
 func (s *Service) GetCache(request repository.SearchRequest) (repository.SearchResponse, error) {
 	return s.Repository.GetCache(request.Query)
 }
-func (s *Service) GetGeocode(w http.ResponseWriter, r *http.Request) (repository.GeocodeRequest, error) {
+func (s *Service) GetGeocode(r io.ReadCloser) (repository.GeocodeRequest, error) {
 	var geocodeRequest repository.GeocodeRequest
-	err := json.NewDecoder(r.Body).Decode(&geocodeRequest)
+	err := json.NewDecoder(r).Decode(&geocodeRequest)
 	if err != nil {
 		log.Println("Status")
-		http.Error(w, err.Error(), http.StatusBadRequest)
 		return geocodeRequest, err
 	}
+	return geocodeRequest, nil
+}
+func (s *Service) DadataGeocodeApi(geocodeRequest repository.GeocodeRequest) (repository.SearchRequest, error) {
 	address := repository.Address{
 		Lat: strconv.FormatFloat(geocodeRequest.Lat, 'f', -1, 64),
 		Lng: strconv.FormatFloat(geocodeRequest.Lng, 'f', -1, 64),
 	}
 	request := repository.SearchResponse{Addresses: []*repository.Address{&address}}
 	cachedResponse, err := s.Repository.GetSearchHistory(request)
-	if err == nil {
-		err = json.NewEncoder(w).Encode(&cachedResponse)
-		if err != nil {
-			log.Println("err5")
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return geocodeRequest, err
-		}
-		return geocodeRequest, nil
-	}
-	return geocodeRequest, nil
+	return cachedResponse, err
+
 }
 func (s *Service) DadataGeocode(geocodeRequest repository.GeocodeRequest) (repository.GeocodeResponse, error) {
 
@@ -75,9 +69,9 @@ func (s *Service) DadataGeocode(geocodeRequest repository.GeocodeRequest) (repos
 	return geocodeResponse, nil
 
 }
-func (s *Service) DadataSearch(r *http.Request) (string, error) {
+func (s *Service) DadataSearch(r io.ReadCloser) (string, error) {
 	var searchRequest repository.SearchRequest
-	err := json.NewDecoder(r.Body).Decode(&searchRequest)
+	err := json.NewDecoder(r).Decode(&searchRequest)
 	if err != nil {
 		return "", err
 	}

@@ -35,9 +35,9 @@ func NewController(service2 service.Service) Controller {
 //	@Failure		500				"Internal server error"
 //	@Router			/geocode [post]
 func (c *Controller) Geocode(w http.ResponseWriter, r *http.Request) {
-	geoocodeRequest, err := c.service.GetGeocode(w, r)
+	geoocodeRequest, err := c.service.GetGeocode(r.Body)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(w, err.Error(), http.StatusBadRequest)
 	}
 	geocodeResponse, err := c.service.DadataGeocode(geoocodeRequest)
 	if err != nil {
@@ -45,17 +45,15 @@ func (c *Controller) Geocode(w http.ResponseWriter, r *http.Request) {
 	}
 	err = json.NewEncoder(w).Encode(&geocodeResponse)
 	if err != nil {
-		log.Println("err6")
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	err = c.service.Repository.CacheAddress(*geocodeResponse.Addresses[0])
+	err = c.service.Repository.CacheAddress(geocodeResponse)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 	err = json.NewEncoder(w).Encode(&geocodeResponse)
 	if err != nil {
-		log.Println("err5")
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
@@ -82,13 +80,16 @@ func (c *Controller) Geocode(w http.ResponseWriter, r *http.Request) {
 //	@Router			/search [post]
 func (c *Controller) Search(w http.ResponseWriter, r *http.Request) {
 
-	searchRequest, err := c.service.DadataSearch(r)
+	searchRequest, err := c.service.DadataSearch(r.Body)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+	}
 
 	cachedResponse, err := c.service.Repository.GetCache(searchRequest)
 	if err == nil {
 		err = json.NewEncoder(w).Encode(&cachedResponse)
 		if err != nil {
-			log.Println("Status 500, dadata.ru is not responding")
+			log.Println("data not found")
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
