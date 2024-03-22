@@ -59,7 +59,7 @@ func (r *Repository) Migrate(ctx context.Context) error {
 		log.Fatalf("Error connecting to database: %s", err)
 	}
 	defer db.Close()
-	if err := goose.Up(db, "../../../migrations"); err != nil {
+	if err := goose.Up(db, "migrations/"); err != nil {
 		log.Fatalf("Error applying migrations: %s", err)
 	}
 	return err

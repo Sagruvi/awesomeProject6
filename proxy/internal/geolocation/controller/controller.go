@@ -1,6 +1,8 @@
 package controller
 
 import (
+	"encoding/json"
+	"log"
 	"main/proxy/internal/geolocation/service"
 	"net/http"
 )
@@ -33,7 +35,30 @@ func NewController(service2 service.Service) Controller {
 //	@Failure		500				"Internal server error"
 //	@Router			/geocode [post]
 func (c *Controller) Geocode(w http.ResponseWriter, r *http.Request) {
-	c.service.DadataGeocode(w, r)
+	geoocodeRequest, err := c.service.GetGeocode(w, r)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+	geocodeResponse, err := c.service.DadataGeocode(geoocodeRequest)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+	err = json.NewEncoder(w).Encode(&geocodeResponse)
+	if err != nil {
+		log.Println("err6")
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	err = c.service.Repository.CacheAddress(*geocodeResponse.Addresses[0])
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+	err = json.NewEncoder(w).Encode(&geocodeResponse)
+	if err != nil {
+		log.Println("err5")
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
 }
 
 // SearchAddress godoc
@@ -56,5 +81,28 @@ func (c *Controller) Geocode(w http.ResponseWriter, r *http.Request) {
 //	@Failure		500				"Internal server error"
 //	@Router			/search [post]
 func (c *Controller) Search(w http.ResponseWriter, r *http.Request) {
-	c.service.DadataSearch(w, r)
+
+	searchRequest, err := c.service.DadataSearch(r)
+
+	cachedResponse, err := c.service.Repository.GetCache(searchRequest)
+	if err == nil {
+		err = json.NewEncoder(w).Encode(&cachedResponse)
+		if err != nil {
+			log.Println("Status 500, dadata.ru is not responding")
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		return
+	}
+	resp, err := c.service.DadataSearchApi(searchRequest)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	err = json.NewEncoder(w).Encode(&resp)
+	if err != nil {
+		log.Println("Status 500, dadata.ru is not responding")
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 }

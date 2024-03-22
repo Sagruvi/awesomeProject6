@@ -29,13 +29,13 @@ func (s *Service) GetSearchHistory(response repository.SearchResponse) (reposito
 func (s *Service) GetCache(request repository.SearchRequest) (repository.SearchResponse, error) {
 	return s.Repository.GetCache(request.Query)
 }
-func (s *Service) DadataGeocode(w http.ResponseWriter, r *http.Request) {
+func (s *Service) GetGeocode(w http.ResponseWriter, r *http.Request) (repository.GeocodeRequest, error) {
 	var geocodeRequest repository.GeocodeRequest
 	err := json.NewDecoder(r.Body).Decode(&geocodeRequest)
 	if err != nil {
 		log.Println("Status")
 		http.Error(w, err.Error(), http.StatusBadRequest)
-		return
+		return geocodeRequest, err
 	}
 	address := repository.Address{
 		Lat: strconv.FormatFloat(geocodeRequest.Lat, 'f', -1, 64),
@@ -48,9 +48,14 @@ func (s *Service) DadataGeocode(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			log.Println("err5")
 			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
+			return geocodeRequest, err
 		}
+		return geocodeRequest, nil
 	}
+	return geocodeRequest, nil
+}
+func (s *Service) DadataGeocode(geocodeRequest repository.GeocodeRequest) (repository.GeocodeResponse, error) {
+
 	api := dadata.NewDaData("602f4fabeedea0f000f4cee8ab9a5773d800f005", "f57d7df9064c22a9c4a7c61b90109cd44fd7f284")
 
 	req := dadata.GeolocateRequest{
@@ -62,65 +67,31 @@ func (s *Service) DadataGeocode(w http.ResponseWriter, r *http.Request) {
 	addresses, err := api.GeolocateAddress(req)
 	if err != nil {
 		log.Println("Status 500, dadata.ru is not responding")
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
+		return repository.GeocodeResponse{}, err
 	}
 
 	var geocodeResponse repository.GeocodeResponse
 	geocodeResponse.Addresses = []*repository.Address{{Lat: addresses[0].Data.City, Lng: addresses[0].Data.Street + " " + addresses[0].Data.House}}
+	return geocodeResponse, nil
 
-	err = json.NewEncoder(w).Encode(&geocodeResponse)
-	if err != nil {
-		log.Println("err6")
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	err = s.Repository.CacheAddress(*geocodeResponse.Addresses[0])
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
-	err = json.NewEncoder(w).Encode(&geocodeResponse)
-	if err != nil {
-		log.Println("err5")
-		http.Error(w, err.Error(), http.StatusBadRequest)
-		return
-	}
 }
-func (s *Service) DadataSearch(w http.ResponseWriter, r *http.Request) {
+func (s *Service) DadataSearch(r *http.Request) (string, error) {
 	var searchRequest repository.SearchRequest
 	err := json.NewDecoder(r.Body).Decode(&searchRequest)
 	if err != nil {
-		log.Println("err502.1")
-		http.Error(w, err.Error(), http.StatusBadRequest)
-		return
+		return "", err
 	}
-	cachedResponse, err := s.Repository.GetCache(searchRequest.Query)
-	if err == nil {
-		err = json.NewEncoder(w).Encode(&cachedResponse)
-		if err != nil {
-			log.Println("Status 500, dadata.ru is not responding")
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
-		return
-	}
+	return searchRequest.Query, nil
+}
+func (s *Service) DadataSearchApi(query string) (repository.SearchResponse, error) {
 	api := dadata.NewDaData("602f4fabeedea0f000f4cee8ab9a5773d800f005", "f57d7df9064c22a9c4a7c61b90109cd44fd7f284")
 
-	log.Println(searchRequest.Query)
-
-	addresses, err := api.CleanAddresses(searchRequest.Query)
+	addresses, err := api.CleanAddresses(query)
 	if err != nil {
-		log.Println("err502.2")
-		http.Error(w, err.Error(), http.StatusBadRequest)
-		return
+		return repository.SearchResponse{}, err
 	}
 	log.Println(addresses)
 	var searchResponse repository.SearchResponse
 	searchResponse.Addresses = []*repository.Address{{Lat: addresses[0].GeoLat, Lng: addresses[0].GeoLon}}
-	err = json.NewEncoder(w).Encode(&searchResponse)
-	if err != nil {
-		log.Println("Status 500, dadata.ru is not responding")
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
+	return searchResponse, nil
 }
