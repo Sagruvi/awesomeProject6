@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="caeeffcb-c20d-4957-b86d-f0ae8c5ec438" name="Changes" comment="fix">
+      <change afterPath="$PROJECT_DIR$/proxy/internal/geolocation/entity/entity.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy/internal/auth/controller/controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/internal/auth/controller/controller.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proxy/internal/geolocation/controller/controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/internal/geolocation/controller/controller.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proxy/internal/geolocation/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/internal/geolocation/repository/repository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proxy/internal/geolocation/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/internal/geolocation/service/service.go" afterDir="false" />

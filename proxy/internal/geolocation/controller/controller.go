@@ -3,12 +3,19 @@ package controller
 import (
 	"encoding/json"
 	"log"
+	"main/proxy/internal/geolocation/entity"
 	"main/proxy/internal/geolocation/service"
 	"net/http"
 )
 
 type Controller struct {
 	service service.Service
+}
+type GeocodeRequest struct {
+	entity.GeocodeRequest
+}
+type SearchRequest struct {
+	entity.SearchRequest
 }
 
 func NewController(service2 service.Service) Controller {
@@ -22,7 +29,7 @@ func NewController(service2 service.Service) Controller {
 //	@Tags			addresses
 //	@Accept			json
 //	@Produce		json
-//	@Param			lat				body		GeocodeRequest	true	"Lat and Lon"
+//	@Param			lat				body		repository.GeocodeRequest	true	"Lat and Lon"
 //	@Param			Authorization	header		string			true	"Authorization token"
 //	@Param			X-Secret		header		string			true	"API Private token"
 //
@@ -35,11 +42,12 @@ func NewController(service2 service.Service) Controller {
 //	@Failure		500				"Internal server error"
 //	@Router			/geocode [post]
 func (c *Controller) Geocode(w http.ResponseWriter, r *http.Request) {
-	geoocodeRequest, err := c.service.GetGeocode(r.Body)
+	var geocodeRequest GeocodeRequest
+	err := json.NewDecoder(r.Body).Decode(&geocodeRequest.GeocodeRequest)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 	}
-	geocodeResponse, err := c.service.DadataGeocode(geoocodeRequest)
+	geocodeResponse, err := c.service.DadataGeocode(geocodeRequest.GeocodeRequest)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
@@ -66,7 +74,7 @@ func (c *Controller) Geocode(w http.ResponseWriter, r *http.Request) {
 //	@Tags			addresses
 //	@Accept			json
 //	@Produce		json
-//	@Param			lat				body		SearchRequest	true	"Address"
+//	@Param			lat				body		repository.SearchRequest	true	"Address"
 //	@Param			Authorization	header		string			true	"Authorization token"
 //	@Param			X-Secret		header		string			true	"API Private token"
 //
@@ -79,13 +87,13 @@ func (c *Controller) Geocode(w http.ResponseWriter, r *http.Request) {
 //	@Failure		500				"Internal server error"
 //	@Router			/search [post]
 func (c *Controller) Search(w http.ResponseWriter, r *http.Request) {
-
-	searchRequest, err := c.service.DadataSearch(r.Body)
+	var searchRequest SearchRequest
+	err := json.NewDecoder(r.Body).Decode(&searchRequest.SearchRequest)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 	}
 
-	cachedResponse, err := c.service.Repository.GetCache(searchRequest)
+	cachedResponse, err := c.service.GetCache(searchRequest.SearchRequest)
 	if err == nil {
 		err = json.NewEncoder(w).Encode(&cachedResponse)
 		if err != nil {
@@ -95,7 +103,7 @@ func (c *Controller) Search(w http.ResponseWriter, r *http.Request) {
 		}
 		return
 	}
-	resp, err := c.service.DadataSearchApi(searchRequest)
+	resp, err := c.service.DadataSearchApi(searchRequest.SearchRequest.Query)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

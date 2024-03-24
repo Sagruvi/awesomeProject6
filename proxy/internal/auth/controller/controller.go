@@ -9,6 +9,10 @@ import (
 	"net/http"
 )
 
+type User struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
 type GeoServicer interface {
 	Login(http.ResponseWriter, *http.Request)
 	Register(http.ResponseWriter, *http.Request)
@@ -38,7 +42,7 @@ func NewController(secret string) *Controller {
 // @Failure 500 {string} string "error creating token"
 // @Router /login [get]
 func (c *Controller) Login(w http.ResponseWriter, r *http.Request) {
-	var user repository.User
+	var user User
 	err := json.NewDecoder(r.Body).Decode(&user)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
@@ -75,7 +79,7 @@ func (c *Controller) Login(w http.ResponseWriter, r *http.Request) {
 // @Failure 500 {string} string "error hashing password"
 // @Router /register [get]
 func (c *Controller) Register(w http.ResponseWriter, r *http.Request) {
-	var user repository.User
+	var user User
 	err := json.NewDecoder(r.Body).Decode(&user)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
