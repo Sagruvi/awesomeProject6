@@ -56,7 +56,7 @@ func (c *Controller) Geocode(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	err = c.service.Repository.CacheAddress(geocodeResponse)
+	err = c.service.CacheAddress(geocodeResponse)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
