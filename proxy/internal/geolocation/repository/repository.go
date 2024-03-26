@@ -3,9 +3,11 @@ package repository
 import (
 	"context"
 	"database/sql"
+	"encoding/json"
 	"github.com/jackc/pgx/v5"
 	"github.com/joho/godotenv"
 	"github.com/pressly/goose/v3"
+	"github.com/redis/go-redis/v9"
 	"log"
 	"main/proxy/internal/geolocation/entity"
 	"os"
@@ -17,15 +19,14 @@ type RepositoryCacher interface {
 }
 
 type Repository struct {
-	entity.SearchResponse
-	entity.SearchRequest
-	entity.GeocodeRequest
-	entity.GeocodeResponse
-	entity.Address
+	client *redis.Client
 }
 
 func NewRepository() *Repository {
-	return &Repository{}
+	client := redis.NewClient(&redis.Options{
+		Addr: "localhost:6379",
+	})
+	return &Repository{client: client}
 }
 func (r *Repository) Migrate(ctx context.Context) error {
 	if err := godotenv.Load(); err != nil {
@@ -69,7 +70,10 @@ func (r *Repository) CacheSearchHistory(request string) error {
 		return err
 	}
 	defer conn.Close(context.Background())
-
+	redisErr := r.client.Set(context.Background(), "search_history"+request, request, 0)
+	if redisErr.Err() != nil {
+		return redisErr.Err()
+	}
 	_, err = conn.Exec(context.Background(), "INSERT INTO search_history (query_text) VALUES ($1)", request)
 	if err != nil {
 		return err
@@ -84,7 +88,10 @@ func (r *Repository) CacheAddress(geocodeResponse entity.GeocodeResponse) error 
 		return err
 	}
 	defer conn.Close(context.Background())
-
+	redisErr := r.client.Set(context.Background(), "address"+geocodeResponse.Addresses[0].Lat+" "+geocodeResponse.Addresses[0].Lng, geocodeResponse, 0)
+	if redisErr.Err() != nil {
+		return redisErr.Err()
+	}
 	_, err = conn.Exec(context.Background(), "INSERT INTO address (lat, lon) VALUES ($1, $2)", geocodeResponse.Addresses[0].Lat, geocodeResponse.Addresses[0].Lng)
 	if err != nil {
 		return err
@@ -101,7 +108,16 @@ func (r *Repository) GetSearchHistory(response entity.SearchResponse) (entity.Se
 
 	var searchRequest entity.SearchRequest
 	var searchHistoryID int
-
+	res := r.client.Get(context.Background(), "search_history"+response.Addresses[0].Lat+" "+response.Addresses[0].Lng)
+	if res.Err() != nil {
+		return entity.SearchRequest{}, res.Err()
+	}
+	if res.Val() != "" {
+		err = json.Unmarshal([]byte(res.Val()), &searchRequest)
+		if err != nil {
+			return entity.SearchRequest{}, err
+		}
+	}
 	err = conn.QueryRow(context.Background(), "SELECT id FROM address WHERE levenshtein(lat, lon, $1, $2) <= LENGTH($1) * 0.3 AND levenshtein(lat, lon, $2, $1) <= LENGTH($2) * 0.3 LIMIT 1;", response.Addresses[0].Lat, response.Addresses[0].Lng).Scan(&searchHistoryID)
 	if err != nil {
 		return entity.SearchRequest{}, err
@@ -125,6 +141,16 @@ func (r *Repository) GetCache(request string) (entity.SearchResponse, error) {
 	var searchResponse entity.SearchResponse
 
 	var searchHistoryID int
+	res := r.client.Get(context.Background(), "search_history"+request)
+	if res.Err() != nil {
+		return entity.SearchResponse{}, res.Err()
+	}
+	if res.Val() != "" {
+		err = json.Unmarshal([]byte(res.Val()), &searchResponse)
+		if err != nil {
+			return entity.SearchResponse{}, err
+		}
+	}
 	err = conn.QueryRow(context.Background(), "SELECT id FROM search_history WHERE levenshtein(query_text, $1) <= LENGTH($1) * 0.3 LIMIT 1", request).Scan(&searchHistoryID)
 	if err != nil {
 		return entity.SearchResponse{}, err
