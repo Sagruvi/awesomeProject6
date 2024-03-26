@@ -29,18 +29,16 @@ func (s *Service) GetCache(request entity.SearchRequest) (entity.SearchResponse,
 	return s.Repository.GetCache(request.Query)
 }
 
-func (s *Service) DadataGeocodeApi(geocodeRequest entity.GeocodeRequest) (entity.SearchRequest, error) {
+func (s *Service) DadataGeocodeApi(geocodeRequest entity.GeocodeRequest) (string, error) {
 	address := entity.Address{
 		Lat: strconv.FormatFloat(geocodeRequest.Lat, 'f', -1, 64),
 		Lng: strconv.FormatFloat(geocodeRequest.Lng, 'f', -1, 64),
 	}
 	request := entity.SearchResponse{Addresses: []*entity.Address{&address}}
 	cachedResponse, err := s.Repository.GetSearchHistory(request)
-	return cachedResponse, err
-
-}
-func (s *Service) DadataGeocode(geocodeRequest entity.GeocodeRequest) (entity.GeocodeResponse, error) {
-
+	if err == nil {
+		return cachedResponse.Query, nil
+	}
 	api := dadata.NewDaData("602f4fabeedea0f000f4cee8ab9a5773d800f005", "f57d7df9064c22a9c4a7c61b90109cd44fd7f284")
 
 	req := dadata.GeolocateRequest{
@@ -52,16 +50,25 @@ func (s *Service) DadataGeocode(geocodeRequest entity.GeocodeRequest) (entity.Ge
 	addresses, err := api.GeolocateAddress(req)
 	if err != nil {
 		log.Println("Status 500, dadata.ru is not responding")
-		return entity.GeocodeResponse{}, err
+		return "", err
 	}
 
 	var geocodeResponse entity.GeocodeResponse
 	geocodeResponse.Addresses = []*entity.Address{{Lat: addresses[0].Data.City, Lng: addresses[0].Data.Street + " " + addresses[0].Data.House}}
-	return geocodeResponse, nil
+	res := geocodeResponse.Addresses[0].Lat + " " + geocodeResponse.Addresses[0].Lng
+	err = s.CacheAddress(geocodeResponse)
+	if err != nil {
+		return res, err
+	}
+	return res, nil
 
 }
 
 func (s *Service) DadataSearchApi(query string) (entity.SearchResponse, error) {
+	cachedResponse, err := s.GetCache(entity.SearchRequest{Query: query})
+	if err == nil {
+		return cachedResponse, nil
+	}
 	api := dadata.NewDaData("602f4fabeedea0f000f4cee8ab9a5773d800f005", "f57d7df9064c22a9c4a7c61b90109cd44fd7f284")
 
 	addresses, err := api.CleanAddresses(query)
@@ -71,5 +78,6 @@ func (s *Service) DadataSearchApi(query string) (entity.SearchResponse, error) {
 	log.Println(addresses)
 	var searchResponse entity.SearchResponse
 	searchResponse.Addresses = []*entity.Address{{Lat: addresses[0].GeoLat, Lng: addresses[0].GeoLon}}
+	err = s.CacheSearchHistory(entity.SearchRequest{Query: query})
 	return searchResponse, nil
 }

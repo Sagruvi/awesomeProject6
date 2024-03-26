@@ -47,19 +47,7 @@ func (c *Controller) Geocode(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 	}
-	geocodeResponse, err := c.service.DadataGeocode(geocodeRequest.GeocodeRequest)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
-	err = json.NewEncoder(w).Encode(&geocodeResponse)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	err = c.service.Repository.CacheAddress(geocodeResponse)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
+	geocodeResponse, err := c.service.DadataGeocodeApi(geocodeRequest.GeocodeRequest)
 	err = json.NewEncoder(w).Encode(&geocodeResponse)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)

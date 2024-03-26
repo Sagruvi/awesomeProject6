@@ -9,11 +9,6 @@ type Repository struct {
 	db map[string]string
 }
 
-type User struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
-}
-
 func NewRepository() Repository {
 	return Repository{
 		db: make(map[string]string),
