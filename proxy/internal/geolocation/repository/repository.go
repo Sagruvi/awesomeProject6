@@ -141,7 +141,7 @@ func (r *Repository) GetCache(request string) (entity.SearchResponse, error) {
 	var searchResponse entity.SearchResponse
 
 	var searchHistoryID int
-	res := r.client.Get(context.Background(), "search_history"+request)
+	res := r.client.Get(context.Background(), "address"+request)
 	if res.Err() != nil {
 		return entity.SearchResponse{}, res.Err()
 	}
